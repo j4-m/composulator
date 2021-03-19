@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/j4-m/composulator/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/j4-m/composulator/static/js/main.585807b5.chunk.js",
+    "main.js.map": "/j4-m/composulator/static/js/main.585807b5.chunk.js.map",
+    "runtime-main.js": "/j4-m/composulator/static/js/runtime-main.af3e91db.js",
+    "runtime-main.js.map": "/j4-m/composulator/static/js/runtime-main.af3e91db.js.map",
+    "static/js/2.fde3ce3a.chunk.js": "/j4-m/composulator/static/js/2.fde3ce3a.chunk.js",
+    "static/js/2.fde3ce3a.chunk.js.map": "/j4-m/composulator/static/js/2.fde3ce3a.chunk.js.map",
+    "static/js/3.162e7096.chunk.js": "/j4-m/composulator/static/js/3.162e7096.chunk.js",
+    "static/js/3.162e7096.chunk.js.map": "/j4-m/composulator/static/js/3.162e7096.chunk.js.map",
+    "index.html": "/j4-m/composulator/index.html",
+    "static/css/main.9d5b29c0.chunk.css.map": "/j4-m/composulator/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.fde3ce3a.chunk.js.LICENSE.txt": "/j4-m/composulator/static/js/2.fde3ce3a.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/j4-m/composulator/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.af3e91db.js",
+    "static/js/2.fde3ce3a.chunk.js",
+    "static/css/main.9d5b29c0.chunk.css",
+    "static/js/main.585807b5.chunk.js"
+  ]
+}
