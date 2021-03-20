@@ -1,7 +1,7 @@
 {
   "name": "composulator",
   "version": "0.1.0",
-  "homepage": "j4-m/composulator",
+  "homepage": "https://j4-m.github.io/composulator",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
