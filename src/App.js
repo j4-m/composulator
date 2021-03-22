@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react'
+import './App.css'
+import packagist from './services/packagist'
+import debounce from 'lodash.debounce'
 
 function App() {
+  const [query, setQuery] = useState('')
+  const [test, setTest] = useState('arse')
+  const search = () => { packagist.search('hello') }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input type="text" value={query} onChange={e => debounce(() => setQuery(e.target.value), 500)}/>
     </div>
   );
 }
