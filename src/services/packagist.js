@@ -1,9 +1,14 @@
 import axios from 'axios'
 
-const http = axios.create({baseURL: 'https://packagist.org/'})
+const http = axios.create({baseURL: 'https://packagist.orgx/'})
 
-const search = q => http.get('search.json', { params: { q }})
+const search = q => {
+    return http.get('search.json', { params: { q, per_page: 10 }})
+        .then(r => r.data.results)
+}
 
-export default {
+const packagist = {
     search
 }
+
+export default packagist
