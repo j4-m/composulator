@@ -1,35 +1,51 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import './App.css'
-import packagist from './services/packagist'
-import logo from './composer.png'
-import SearchResult from './search/SearchResult'
+
+import Search from './views/Search'
+import Calculate from './views/Calculate'
+
 
 function App() {
-  const [query, setQuery] = useState('')
-  const [packages, setPackages] = useState([])
-  const selectPackage = (pkg) => {
-    console.log(pkg)
+  const [display, setDisplay] = useState('SEARCH')
+  const [packageName, setPackageName] = useState('')
+
+  const goTo = (path, byHistory = false) => {
+    const goToUrl = new URL(path, 'http://www.example.com')
+    if (!byHistory) {
+      window.history.pushState({path}, null, '#' + path)
+    }
+    switch (goToUrl.pathname) {
+      case '/':
+        setDisplay('SEARCH')
+        break
+      case '/package':
+        const name = goToUrl.searchParams.get('name')
+        setPackageName(name)
+        setDisplay('DETAIL')
+        break
+      default:
+        setDisplay('SEARCH')
+    }
   }
-  const handleSearchButton = q => {
-    packagist.search(q).then(r => setPackages(r))
+
+  useEffect(() => {
+    const hash = window.location.hash
+    const path = hash === '' ? '/' : hash.replace('#', '')
+    window.history.replaceState({path}, null, '#' + path)
+    window.onpopstate = e => goTo(e.state.path, true)
+    // window.addEventListener('hashchange', () => console.log, false);
+  }, [])
+  const handleSelectedPackage = (pkg) => {
+    goTo(`/package?name=${pkg}`)
   }
   return (
     <div className="App">
-      <div><img src={logo} alt="Logo" /></div>
-      <input type="text" value={query} onChange={e => setQuery(e.target.value)}/>
-      <button onClick={() => handleSearchButton(query)}>Search</button>
-      <div>
-        {packages.map(p => { 
-          return (
-            <SearchResult 
-              key={p.name}
-              name={p.name}
-              description={p.description}
-              clickHandler={pkg => selectPackage(pkg)}
-            />
-          )
-        })}
-      </div>
+      {display === 'SEARCH' && (
+        <Search packageSelectedHandler={handleSelectedPackage} />
+      )}
+      {display === 'DETAIL' && (
+        <Calculate packageName={packageName} />
+      )}
     </div>
   );
 }

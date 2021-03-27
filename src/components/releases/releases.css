@@ -1,0 +1,17 @@
+.releases {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1em;
+
+}
+
+.release-item {
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
